@@ -82,3 +82,13 @@ mmctl plugin enable com.otules.mattermarkdown
 - Simultaneous editing by several people (Yjs/CRDT). The storage layout leaves room for it.
 - Diffs between versions, search across documents, @mentions inside documents, `.md` import/export (including uploading a folder of `.md` files as a MatterMarkdown folder).
 - A custom view for the mobile apps. On mobile the card shows as a plain "created the document" message.
+
+## Support
+
+Built for and used on my own Mattermost server. Issues and pull requests are welcome, but there are no promises about fixes, features or response times.
+
+## License
+
+Apache License 2.0; see [LICENSE](LICENSE).
+
+Mattermost is a trademark of Mattermost, Inc. This project is not affiliated with or endorsed by Mattermost, Inc.
