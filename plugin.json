@@ -1,0 +1,27 @@
+{
+    "id": "com.otules.mattermarkdown",
+    "name": "MatterMarkdown",
+    "description": "Shared Markdown documents for channels. One editor at a time, with version history.",
+    "homepage_url": "https://github.com/BigForkLifter/mattermarkdown",
+    "support_url": "https://github.com/BigForkLifter/mattermarkdown/issues",
+    "icon_path": "assets/icon.svg",
+    "version": "0.5.0",
+    "min_server_version": "10.0.0",
+    "server": {
+        "executables": {
+            "linux-amd64": "server/dist/plugin-linux-amd64",
+            "linux-arm64": "server/dist/plugin-linux-arm64",
+            "darwin-amd64": "server/dist/plugin-darwin-amd64",
+            "darwin-arm64": "server/dist/plugin-darwin-arm64",
+            "windows-amd64": "server/dist/plugin-windows-amd64.exe"
+        }
+    },
+    "webapp": {
+        "bundle_path": "webapp/dist/main.js"
+    },
+    "settings_schema": {
+        "header": "",
+        "footer": "",
+        "settings": []
+    }
+}

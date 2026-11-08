@@ -1,0 +1,20 @@
+name: ci
+on:
+  push:
+    branches:
+      - master
+      - main
+    tags:
+      - "v*"
+  pull_request:
+
+# The shared workflow asks for id-token: write, and a call fails unless it's granted.
+# Only its release job uses it, and that job runs only in Mattermost's own repos.
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  plugin-ci:
+    # Pinned to a commit so a change upstream can't change what runs here.
+    uses: mattermost/actions-workflows/.github/workflows/plugin-ci.yml@272673760d066687d90a736efe61ed68c8644e2e # main, 2026-09-18

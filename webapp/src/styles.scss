@@ -1,0 +1,803 @@
+// Colors come from Mattermost's theme variables, so documents follow the user's theme.
+$fg: var(--center-channel-color);
+$bg: var(--center-channel-bg);
+$border: rgba(var(--center-channel-color-rgb), 0.12);
+$muted: rgba(var(--center-channel-color-rgb), 0.64);
+$hover: rgba(var(--center-channel-color-rgb), 0.06);
+$accent: var(--button-bg);
+
+.mmd-username {
+    font-weight: 600;
+}
+
+.mmd-error {
+    color: var(--error-text);
+}
+
+// Right-hand sidebar
+
+.mmd-rhs {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    height: 100%;
+    padding: 16px;
+    overflow-y: auto;
+    color: $fg;
+}
+
+.mmd-new-button {
+    align-self: flex-start;
+}
+
+.mmd-new-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.mmd-new-form-actions {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+}
+
+.mmd-rhs-empty {
+    color: $muted;
+    line-height: 1.5;
+}
+
+.mmd-doc-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.mmd-doc-item {
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 8px;
+    border: none;
+    border-radius: 4px;
+    background: none;
+    color: inherit;
+    text-align: left;
+
+    &:hover,
+    &:focus-visible {
+        background: $hover;
+    }
+}
+
+.mmd-doc-icon {
+    padding-top: 2px;
+    color: $muted;
+}
+
+.mmd-doc-text {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.mmd-doc-title {
+    overflow: hidden;
+    font-weight: 600;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.mmd-doc-meta {
+    color: $muted;
+    font-size: 12px;
+}
+
+.mmd-editing {
+    color: var(--away-indicator, #ffbc1f);
+
+    .mmd-username {
+        color: inherit;
+    }
+}
+
+// Document card in the channel
+
+.mmd-card-text {
+    color: $muted;
+}
+
+.mmd-card {
+    display: flex;
+    width: 100%;
+    max-width: 480px;
+    align-items: center;
+    gap: 12px;
+    margin-top: 6px;
+    padding: 12px 16px;
+    border: 1px solid $border;
+    border-radius: 8px;
+    background: $bg;
+    color: $fg;
+    text-align: left;
+
+    &:hover {
+        border-color: rgba(var(--center-channel-color-rgb), 0.24);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    }
+}
+
+.mmd-card-icon {
+    color: $accent;
+}
+
+.mmd-card-title {
+    overflow: hidden;
+    flex: 1;
+    font-weight: 600;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.mmd-card-open {
+    color: var(--link-color);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+// Full-screen viewer and editor
+
+.mmd-overlay {
+    position: fixed;
+    z-index: 1040;
+    display: flex;
+    flex-direction: column;
+    background: $bg;
+    color: $fg;
+    inset: 0;
+}
+
+.mmd-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 16px;
+    border-bottom: 1px solid $border;
+}
+
+.mmd-header-icon {
+    color: $accent;
+}
+
+.mmd-header-titles {
+    min-width: 0;
+    flex: 1;
+}
+
+.mmd-title {
+    overflow: hidden;
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.mmd-title-input {
+    width: 100%;
+    max-width: 640px;
+    padding: 2px 6px;
+    margin-left: -7px;
+    border: 1px solid $border;
+    border-radius: 4px;
+    background: transparent;
+    color: inherit;
+    font-size: 18px;
+    font-weight: 600;
+
+    &:focus {
+        border-color: $accent;
+        outline: none;
+    }
+}
+
+.mmd-meta {
+    color: $muted;
+    font-size: 12px;
+}
+
+.mmd-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+
+.mmd-close {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 4px;
+    background: none;
+    color: $muted;
+    font-size: 24px;
+    line-height: 1;
+
+    &:hover {
+        background: $hover;
+        color: $fg;
+    }
+}
+
+.mmd-banner {
+    padding: 8px 16px;
+    border-bottom: 1px solid $border;
+    background: rgba(255, 188, 31, 0.16);
+
+    &--error {
+        background: rgba(var(--error-text-color-rgb, 210, 75, 78), 0.12);
+    }
+}
+
+.mmd-body {
+    min-height: 0;
+    flex: 1;
+    overflow: auto;
+}
+
+.mmd-message {
+    padding: 48px 16px;
+    color: $muted;
+    text-align: center;
+}
+
+.mmd-page {
+    max-width: 860px;
+    padding: 32px 24px 64px;
+    margin: 0 auto;
+}
+
+.mmd-markdown {
+    font-size: 15px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+
+    &.mmd-empty {
+        color: $muted;
+        font-style: italic;
+    }
+
+    > :first-child {
+        margin-top: 0;
+    }
+
+    p,
+    ul,
+    ol,
+    blockquote,
+    pre,
+    table {
+        margin: 0 0 12px;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin: 24px 0 8px;
+        font-weight: 600;
+        line-height: 1.3;
+    }
+
+    h1 {
+        padding-bottom: 6px;
+        border-bottom: 1px solid $border;
+        font-size: 28px;
+    }
+
+    h2 {
+        padding-bottom: 4px;
+        border-bottom: 1px solid $border;
+        font-size: 22px;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+
+    h4,
+    h5,
+    h6 {
+        font-size: 15px;
+    }
+
+    ul,
+    ol {
+        padding-left: 28px;
+    }
+
+    ul {
+        list-style: disc;
+    }
+
+    ul ul {
+        list-style: circle;
+    }
+
+    ul ul ul {
+        list-style: square;
+    }
+
+    ol {
+        list-style: decimal;
+    }
+
+    li > ul,
+    li > ol,
+    li > p {
+        margin-bottom: 4px;
+    }
+
+    .mmd-task-item {
+        list-style: none;
+    }
+
+    .mmd-task-checkbox {
+        margin: 0 6px 0 -22px;
+        vertical-align: middle;
+    }
+
+    a {
+        color: var(--link-color);
+    }
+
+    blockquote {
+        padding: 0 14px;
+        border-left: 4px solid $border;
+        color: $muted;
+    }
+
+    code {
+        padding: 2px 4px;
+        border-radius: 4px;
+        background: rgba(var(--center-channel-color-rgb), 0.08);
+        font-family: Menlo, Consolas, "Liberation Mono", monospace;
+        font-size: 0.9em;
+    }
+
+    pre {
+        padding: 12px 14px;
+        border: 1px solid $border;
+        border-radius: 4px;
+        background: rgba(var(--center-channel-color-rgb), 0.04);
+        font-size: 13px;
+        line-height: 1.5;
+        overflow-x: auto;
+
+        // Mattermost's global pre styles shrink code; size it explicitly.
+        code {
+            padding: 0;
+            background: none;
+            font-size: inherit;
+            white-space: pre;
+        }
+    }
+
+    table {
+        display: block;
+        max-width: 100%;
+        border-collapse: collapse;
+        overflow-x: auto;
+    }
+
+    th,
+    td {
+        padding: 6px 12px;
+        border: 1px solid $border;
+    }
+
+    th {
+        background: rgba(var(--center-channel-color-rgb), 0.04);
+        font-weight: 600;
+    }
+
+    hr {
+        margin: 20px 0;
+        border: none;
+        border-top: 1px solid $border;
+    }
+
+    img {
+        max-width: 100%;
+    }
+}
+
+.mmd-split {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 1fr 1fr;
+
+    &--single {
+        grid-template-columns: 1fr;
+    }
+}
+
+.mmd-pane {
+    min-width: 0;
+    min-height: 0;
+    overflow: auto;
+
+    &--editor {
+        border-right: 1px solid $border;
+    }
+
+    &--preview {
+        padding: 16px 24px 64px;
+    }
+}
+
+.mmd-codemirror {
+    height: 100%;
+}
+
+.mmd-history {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 260px 1fr;
+}
+
+.mmd-rev-list {
+    padding: 8px;
+    margin: 0;
+    border-right: 1px solid $border;
+    list-style: none;
+    overflow-y: auto;
+}
+
+.mmd-rev {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 2px;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 4px;
+    background: none;
+    color: inherit;
+    text-align: left;
+
+    &:hover {
+        background: $hover;
+    }
+
+    &--selected {
+        background: rgba(var(--button-bg-rgb), 0.12);
+    }
+}
+
+.mmd-rev-version {
+    font-weight: 600;
+}
+
+.mmd-rev-meta {
+    color: $muted;
+    font-size: 12px;
+}
+
+.mmd-badge {
+    padding: 1px 6px;
+    margin-left: 6px;
+    border-radius: 8px;
+    background: rgba(var(--button-bg-rgb), 0.16);
+    color: $accent;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.mmd-rev-view {
+    padding: 16px 24px 64px;
+    overflow-y: auto;
+}
+
+.mmd-rev-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid $border;
+}
+
+@media (max-width: 768px) {
+    .mmd-header {
+        flex-wrap: wrap;
+    }
+
+    .mmd-split,
+    .mmd-history {
+        grid-template-columns: 1fr;
+    }
+
+    // On narrow screens the preview stacks under the editor.
+    .mmd-split {
+        grid-template-rows: 1fr 1fr;
+    }
+
+    .mmd-pane--editor,
+    .mmd-rev-list {
+        border-right: none;
+        border-bottom: 1px solid $border;
+    }
+}
+
+// Folders and links
+
+.mmd-breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px;
+    font-size: 13px;
+}
+
+.mmd-breadcrumb-link,
+.mmd-breadcrumb-copy {
+    padding: 0;
+    border: none;
+    background: none;
+    color: var(--link-color);
+}
+
+.mmd-breadcrumb-link:hover,
+.mmd-breadcrumb-copy:hover {
+    text-decoration: underline;
+}
+
+.mmd-breadcrumb-copy {
+    margin-left: auto;
+    font-size: 12px;
+}
+
+.mmd-breadcrumb-current {
+    font-weight: 600;
+}
+
+.mmd-breadcrumb-sep {
+    color: $muted;
+}
+
+.mmd-new-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.mmd-move-label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 0;
+    font-weight: 400;
+}
+
+.mmd-folder-icon {
+    color: $accent;
+}
+
+.mmd-folder-label {
+    font-weight: 600;
+}
+
+.mmd-row {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+
+    .mmd-doc-item {
+        min-width: 0;
+        flex: 1;
+    }
+
+    // The menu button only shows on hover or focus, except on touch screens.
+    .mmd-menu-button {
+        opacity: 0;
+    }
+
+    &:hover .mmd-menu-button,
+    &:focus-within .mmd-menu-button,
+    .mmd-menu-button[aria-expanded='true'] {
+        opacity: 1;
+    }
+
+    @media (hover: none) {
+        .mmd-menu-button {
+            opacity: 1;
+        }
+    }
+}
+
+// Rows drag to reorder, or onto a folder or breadcrumb entry to file them.
+.mmd-doc-item[draggable='true'] {
+    cursor: grab;
+}
+
+.mmd-dragging > .mmd-doc-item {
+    opacity: 0.4;
+}
+
+// Where the dragged row would land: a line between rows, or a highlight around a folder.
+.mmd-drop-before > .mmd-doc-item {
+    box-shadow: inset 0 2px 0 $accent;
+}
+
+.mmd-drop-after > .mmd-doc-item {
+    box-shadow: inset 0 -2px 0 $accent;
+}
+
+.mmd-drop-into > .mmd-doc-item {
+    outline: 2px dashed $accent;
+    outline-offset: -2px;
+}
+
+.mmd-breadcrumb-link.mmd-drop-into {
+    text-decoration: underline;
+}
+
+.mmd-menu {
+    position: relative;
+    padding-top: 6px;
+}
+
+.mmd-menu-button {
+    width: 28px;
+    height: 28px;
+    border: none;
+    border-radius: 4px;
+    background: none;
+    color: $muted;
+    font-size: 18px;
+    line-height: 1;
+
+    &:hover {
+        background: $hover;
+        color: $fg;
+    }
+}
+
+.mmd-menu-list {
+    position: absolute;
+    z-index: 10;
+    right: 0;
+    min-width: 140px;
+    padding: 4px 0;
+    margin: 4px 0 0;
+    border: 1px solid $border;
+    border-radius: 4px;
+    background: $bg;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    list-style: none;
+}
+
+.mmd-menu-item {
+    display: block;
+    width: 100%;
+    padding: 6px 14px;
+    border: none;
+    background: none;
+    color: $fg;
+    text-align: left;
+
+    &:hover,
+    &:focus-visible {
+        background: $hover;
+    }
+
+    &--danger {
+        color: var(--error-text);
+    }
+}
+
+.mmd-link-route {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    height: 100%;
+    padding: 48px 16px;
+    color: $muted;
+    text-align: center;
+}
+
+// Share dialog
+
+.mmd-share-backdrop {
+    position: fixed;
+    z-index: 1050; // above the editor overlay
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 10vh 16px 16px;
+    background: rgba(0, 0, 0, 0.5);
+    inset: 0;
+}
+
+.mmd-share {
+    width: 100%;
+    max-width: 520px;
+    border: 1px solid $border;
+    border-radius: 8px;
+    background: $bg;
+    box-shadow: 0 20px 32px rgba(0, 0, 0, 0.12);
+    color: $fg;
+}
+
+.mmd-share-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    border-bottom: 1px solid $border;
+}
+
+.mmd-share-title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.mmd-share-body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+}
+
+.mmd-share-label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 0;
+    color: $muted;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+.mmd-share-link {
+    color: $fg;
+    font-size: 14px;
+    font-weight: normal;
+    letter-spacing: normal;
+    text-transform: none;
+}
+
+.mmd-share-copy,
+.mmd-share-bookmark {
+    width: 100%;
+}
+
+.mmd-share-hint {
+    margin: 0;
+    color: $muted;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.mmd-share-section {
+    margin: 8px 0 0;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.mmd-share-bookmarked {
+    padding: 8px 12px;
+    border-radius: 4px;
+    background: rgba(var(--online-indicator-rgb, 6, 214, 160), 0.12);
+    font-size: 14px;
+}
